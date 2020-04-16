@@ -30,9 +30,12 @@
               <h4 class="text-white">Recursos</h4>
               <ul class="list-unstyled">
                 <li><a href="{% url 'home' %}" class="text-white">Inicio</a></li>
-<li><a href="{% url 'admin:index' %}" class="text-white">Administracion</a></li>
+<li><a href="{% url 'pacientes' %}" class="text-white">Lista de pacientes</a></li>
+<li><a href="{% url 'doctor_l' %}" class="text-white">Lista de Doctores </a></li>
+<li><a href="{% url 'enfermera_l' %}" class="text-white">Lista de enfermeras </a></li>
+
                 {% if user.is_authenticated %}
-                <li><a href="javascript:{document.getElementById('logout').submit()}" onclick=""class="text-white">Log out </a></li>
+                <li><a href="javascript:{document.getElementById('logout').submit()}" onclick=""class="text-white">Cierra sesion </a></li>
                 <form id="logout"action="{% url 'logout'%}" method="post" >
                   {% csrf_token %}
                   <input type="hidden"/>

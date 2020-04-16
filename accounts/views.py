@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import Encuesta,DoctorForm,NurseForm
+from django.views.generic import DetailView, ListView
+from django.views import generic
+from .models import Enfermera,Doctor
 
 def signup(request):
     if request.method == 'POST':
@@ -40,21 +43,13 @@ def home(request):
     return render(request, 'accounts/home.html')
 def chao(request):
     return render(request,'accounts/chao.html')
-def encuesta(request):
-    if request.method == "POST":
-        form = Encuesta(request.POST)
-        if form.is_valid():
-            try:
-                return redirect('sintomas')
-            except:
-                pass
-    else:
-            form = Encuesta()
-    return render(request,'accounts/encuesta.html',{'form':form})
+
 def doctor_view(request):
     if request.method == "POST":
         form = DoctorForm(request.POST)
         if form.is_valid():
+            print("dan")
+
             try:
                 return redirect('/')
             except:
@@ -75,7 +70,31 @@ def enfermera_view(request):
     return render(request,'accounts/nurse.html',{'form':form})
 def verificador(request):
     return render(request,'accounts/verificador.html')
+def encuesta(request):
 
+    if request.method == "POST":
+        form = Encuesta(request.POST)
+        if form.is_valid():
+            dan = request.user
+            print(dan)
+            form.save()
+            return redirect('sintomas')
 
+    else:
+            form = Encuesta()
+    return render(request,'accounts/encuesta.html',{'form':form})
+class EnfermeraListView(generic.ListView):
 
+    model = Enfermera
+
+class EnfermeraDetailView(generic.DetailView):
+
+    model = Enfermera
+
+class DoctorListView(generic.ListView):
+
+    model = Doctor
+class DoctorDetailView(generic.DetailView):
+
+    model = Doctor
 # Create your views here.

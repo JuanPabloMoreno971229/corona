@@ -1,0 +1,28 @@
+{% extends "accounts/base.html" %}
+
+
+{% block content %}
+
+
+<div class="container">
+  <h1 class="text-center  ">Estadisticas generales </h1>
+  <ul class="list-group">
+    <li class="list-group-item">Numero de pacientes con Fiebre {{ pa_fiebre }}</li>
+    <li class="list-group-item">Numero de pacientes con Tos {{ pa_tos }}</li>
+   <li class="list-group-item">Numero de pacientes con Moco {{ pa_moco }}</li>
+    <li class="list-group-item">Numero de pacientes con Congestión nasal {{ pa_congestion }}</li>
+     <li class="list-group-item">Numero de pacientes con Estornudos {{ pa_estornudos }}</li>
+      <li class="list-group-item">Numero de pacientes con dolor de garganta {{ pa_d_garganta }}</li>
+      <li class="list-group-item">Numero de pacientes con malestar de garganta {{ pa_m_garganta }}</li>
+      <li class="list-group-item">Numero de pacientes con dificultad para respirar {{ pa_d_respirar }}</li>
+      <li class="list-group-item">Numero de pacientes con flemas {{ pa_flema }}</li>
+      <li class="list-group-item">Numero de pacientes con vómito {{ pa_vomito }}</li>
+      <li class="list-group-item">Numero de pacientes con diarrea {{ pa_diarrea }}</li>
+      <li class="list-group-item">Numero de pacientes con cansancio {{ pa_cansancio }}</li>
+      <li class="list-group-item">Numero de pacientes con quebrahueso {{ pa_quebrahueso }}</li>
+      <li class="list-group-item">Numero de pacientes con Manchas en los pulmones {{ pa_x_ray }}</li>
+
+  </ul>
+</div>
+
+{% endblock %}

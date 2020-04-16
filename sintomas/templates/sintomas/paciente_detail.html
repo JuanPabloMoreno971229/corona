@@ -1,0 +1,65 @@
+{% extends "sintomas/base.html" %}
+
+{% block content %}
+
+
+
+
+<div class="container">
+<h1 class="text-center  ">Informacion personal de  {{ object.f_name }} {{ object.l_name }} </h1>
+
+
+<div style="margin-left:20px;margin-top:20px">
+
+
+
+</br>
+<ul class="list-group">
+  <li class="list-group-item">Numero de documento {{ object.n_documento }}</li>
+  <li class="list-group-item">Dirección {{ object.address }}</li>
+  <li class="list-group-item">Ciudades {{ object.city }}</li>
+  <li class="list-group-item">Departamentos {{ object.departamento }}</li>
+  <li class="list-group-item">País {{ object.pais }}</li>
+  <li class="list-group-item">Número de teléfono {{ object.phone }}</li>
+  <li class="list-group-item">Skype ID {{ object.skype }}</li>
+  <li class="list-group-item">Genero {{ object.gender }}</li>
+  <li class="list-group-item">Edad {{ object.age }}</li>
+  <li class="list-group-item">Peso {{ object.weight }}</li>
+  <li class="list-group-item">Estatura {{ object.height }}</li>
+  <li class="list-group-item">Correo Electronico {{ paciente.email }} {{ object.paciente.fiebre }}</li>
+
+
+</ul>
+
+
+
+
+</br>
+<h1 class="text-center  ">Sintomas del paciente </h1>
+
+
+{% for sintoma in object.sintomas_set.all %}
+<ul class="list-group">
+  <li class="list-group-item">¿El paciente tiene fiebre? {{ sintoma.fiebre }}</li>
+   <li class="list-group-item">¿El paciente tiene tos? {{ sintoma.tos }}</li>
+   <li class="list-group-item">¿El paciente tiene moco? {{ sintoma.moco }}</li>
+   <li class="list-group-item">¿El paciente tiene congestión nasal? {{ sintoma.congestion }}</li>
+   <li class="list-group-item">¿El paciente tiene estornudos? {{ sintoma.estornudos }}</li>
+   <li class="list-group-item">¿El paciente tiene dolor de garganta? {{ sintoma.d_garganta }}</li>
+   <li class="list-group-item">¿El paciente tiene malestar de garganta? {{ sintoma.m_garganta }}</li>
+   <li class="list-group-item">¿El paciente tiene dificultad para respirar? {{ sintoma.d_respirar }}</li>
+   <li class="list-group-item">¿El paciente tiene flemas? {{ sintoma.flema }}</li>
+   <li class="list-group-item">¿El paciente tiene vómito? {{ sintoma.vomito }}</li>
+   <li class="list-group-item">¿El paciente tiene diarrea? {{ sintoma.diarrea }}</li>
+   <li class="list-group-item">¿El paciente tiene cansancio o debilidad? {{ sintoma.cansancio }}</li>
+   <li class="list-group-item">¿El paciente tiene quebrahueso? {{ sintoma.quebrahueso }}</li>
+   <li class="list-group-item">¿El paciente tiene mancha en los pulmones? {{ sintoma.x_ray }}</li>
+
+</br>
+</ul>
+{% endfor %}
+</br>
+<h1 class="text-center  ">Resultados {{ tos}}  {{ fiebre}}</h1>
+<!--
+
+{% endblock %}

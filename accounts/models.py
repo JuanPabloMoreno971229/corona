@@ -144,7 +144,10 @@ class Doctor (models.Model):
     registro = models.CharField(max_length=200, verbose_name="Registro profesional")
     lugar =  models.CharField(max_length=200, verbose_name="Empresa donde trabaja")
     especialidad = models.CharField(max_length=200, verbose_name="Especialidad")
+    def get_absolute_url(self):
 
+## THIS RETURNS AN URL FOR A CLIENT INSTANCE####
+        return reverse('doctor-detail', args=[str(self.id)])
 class Enfermera (models.Model):
     f_name = models.CharField(max_length=200, verbose_name="Nombre")
     l_name = models.CharField(max_length=200, verbose_name="Apellido")
@@ -152,3 +155,7 @@ class Enfermera (models.Model):
     registro = models.CharField(max_length=200, verbose_name="Registro profesional")
     lugar =  models.CharField(max_length=200, verbose_name="Empresa donde trabaja")
     especialidad = models.CharField(max_length=200, verbose_name="Especialidad")
+    def get_absolute_url(self):
+
+## THIS RETURNS AN URL FOR A CLIENT INSTANCE####
+        return reverse('enfermera-detail', args=[str(self.id)])

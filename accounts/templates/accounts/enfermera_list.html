@@ -1,0 +1,40 @@
+
+{% extends "sintomas/base.html" %}
+
+{% block content %}
+<div class="container">
+<h1 class="text-center  ">Lista de Enfermeras </h1>
+
+
+
+</br>
+
+
+
+</br>
+</br>
+
+
+
+
+
+{% if enfermera_list %}
+  <ul>
+
+  {% for paciente in enfermera_list %}
+    <li>
+
+           <a href="{{ paciente.get_absolute_url }}"> {{ paciente.f_name }} {{ paciente.l_name }}  </a>
+    </li>
+
+  {% endfor %}
+
+ </ul>
+{% else %}
+  <p>No hay ninguna enfermera registrada.</p>
+{% endif %}
+
+
+
+
+{% endblock %}
