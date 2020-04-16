@@ -1,0 +1,18 @@
+{% extends "corona/base.html" %}
+
+
+{% block content %}
+
+
+<div class="container">
+<form method="POST" >
+  <h1>Te damos la bienvenida {{ user.get_username }}</h1>
+
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit" class="save btn btn-default">Enviar </button>
+</form>
+</body>
+</div>
+
+{% endblock %}

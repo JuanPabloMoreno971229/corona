@@ -1,0 +1,35 @@
+{% extends "corona/base.html" %}
+
+  <body>
+
+{% block content %}
+
+{% if error %}
+<p>{{error}}</p>
+<br>
+<br>
+{% endif %}
+<div class="container">
+  <h1>Registrate!</h1>
+
+  <form method="POST" action="{% url 'signup' %}">
+  {% csrf_token %}
+  Usuario:
+  <br />
+  <input type="text" name="username" />
+  <br />
+  Contrasena:
+  <br />
+  <input type="password" name="password1" />
+  <br />
+  Confirma contrasena:
+  <br />
+  <input type="password" name="password2" />
+  <br />
+  <br />
+  <input class="btn btn-primary" type="submit" value="Registrate!" />
+  </form>
+
+</div>
+
+{% endblock %}
